@@ -1,0 +1,37 @@
+' Copyright (c) 2025 Franz Steinkress
+' Licensed under the MIT License - see LICENSE for details
+@startuml
+skinparam nodesep 130
+skinparam linetype ortho
+skinparam classBackgroundColor #F2CC8F
+
+interface Implementor {
+    + {abstract} operationImpl(): void
+}
+class ConcreteImplementorA {
+    + operationImpl(): void
+}
+class ConcreteImplementorB {
+    + operationImpl(): void
+}
+abstract class Abstraction {
+    - implementor: std::shared_ptr<Implementor>
+    + Abstraction(impl: 
+      std::shared_ptr<Implementor>)
+    + operation(): void
+}
+class RefinedAbstraction {
+    + RefinedAbstraction(impl: 
+      std::shared_ptr<Implementor>)
+    + operation(): void
+}
+class Client {
+    + main(): int
+}
+
+Implementor <|.up. ConcreteImplementorA
+Implementor <|.down. ConcreteImplementorB
+Abstraction o-right-> Implementor : Implementierung
+Abstraction <|-- RefinedAbstraction
+Client ..> Abstraction
+@enduml

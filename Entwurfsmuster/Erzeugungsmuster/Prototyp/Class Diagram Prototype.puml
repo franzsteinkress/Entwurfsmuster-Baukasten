@@ -1,0 +1,32 @@
+' Copyright (c) 2025 Franz Steinkress
+' Licensed under the MIT License - see LICENSE for details
+@startuml
+skinparam linetype ortho
+skinparam classBackgroundColor #A8DADC
+
+abstract class Prototype {
+    + {abstract} clone() const: std::unique_ptr<Prototype>
+    + display() const: void
+}
+class ConcretePrototype1 {
+    - data: std::string
+    + ConcretePrototype1(data: std::string)
+    + clone() const: \nstd::unique_ptr<ConcretePrototype1>
+    + display() const: void
+}
+class ConcretePrototype2 {
+    - value: int
+    + ConcretePrototype1(value: int)
+    + clone() const: \nstd::unique_ptr<ConcretePrototype2>
+    + display() const: void
+}
+class Client {
+    - prototype: std::unique_ptr<Prototype>
+    + Client(prototype: const Prototype&)
+    + operation() const: void
+}
+
+Prototype <|-- ConcretePrototype1
+Prototype <|-- ConcretePrototype2
+Client ..> Prototype
+@enduml

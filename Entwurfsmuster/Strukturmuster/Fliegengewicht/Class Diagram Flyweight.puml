@@ -1,0 +1,44 @@
+' Copyright (c) 2025 Franz Steinkress
+' Licensed under the MIT License - see LICENSE for details
+@startuml
+skinparam nodesep 60
+skinparam linetype ortho
+skinparam classBackgroundColor #F2CC8F
+
+interface Flyweight {
+    + {abstract} operation(extrinsicState: 
+      const std::string&) const: void
+}
+class ConcreteFlyweight {
+    - intrinsicState: std::string
+    + ConcreteFlyweight(intrinsicState: 
+      const std::string&)
+    + operation(extrinsicState: 
+      const std::string&) const: void
+}
+class UnsharedConcreteFlyweight {
+    - state: std::string
+    + UnsharedConcreteFlyweight(state: 
+      const std::string&)
+    + operation(extrinsicState: 
+      const std::string&) const: void
+}
+class FlyweightFactory {
+    - flyweights: mutable 
+      std::unordered_map<std::string, std::shared_ptr<Flyweight>>
+    + getFlyweight(sharedState: 
+      const std::string&) const: std::shared_ptr<Flyweight>
+}
+entity Client {
+    + clientCode(factory: const FlyweightFactory&, 
+      extrinsicState: const std::string&)
+}
+
+FlyweightFactory o-right-> "1..*  " Flyweight
+Flyweight <|.. ConcreteFlyweight
+Flyweight <|.. UnsharedConcreteFlyweight
+ConcreteFlyweight -[hidden]right-> UnsharedConcreteFlyweight
+Client .up.> FlyweightFactory
+Client .right.> ConcreteFlyweight
+Client ..> UnsharedConcreteFlyweight
+@enduml

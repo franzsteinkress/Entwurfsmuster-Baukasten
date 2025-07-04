@@ -1,0 +1,19 @@
+# Ignoriert temporäre Dateien und Build-Artefakte
+*.bak
+*.tmp
+*.log
+
+# Ignoriert IDE-spezifische Dateien
+.idea/
+*.iml
+.vscode/
+
+# Ignoriert Betriebssystem-spezifische Dateien
+.DS_Store
+Thumbs.db
+*.ps1
+
+# Ignoriert kompilierte Dateien
+*.class
+*.jar
+*.pyc

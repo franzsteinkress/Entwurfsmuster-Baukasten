@@ -1,0 +1,31 @@
+' Copyright (c) 2025 Franz Steinkress
+' Licensed under the MIT License - see LICENSE for details
+@startuml
+skinparam nodesep 50
+skinparam linetype ortho
+skinparam classBackgroundColor #B2C9AB
+
+interface Strategy {
+    + {abstract} execute() const: void
+}
+class ConcreteStrategyA {
+    + execute() const: void
+}
+class ConcreteStrategyB {
+    + execute() const: void
+}
+class Context {
+    - strategy: std::shared_ptr<Strategy>
+    + setStrategy(newStrategy: 
+      std::shared_ptr<Strategy>): void
+    + performAction() const: void
+}
+class Client {
+    + main(): int
+}
+
+Strategy <|.. ConcreteStrategyA
+Strategy <|.. ConcreteStrategyB
+Context o-right-> Strategy
+Client ..> Context
+@enduml

@@ -1,0 +1,61 @@
+' Copyright (c) 2025 Franz Steinkress
+' Licensed under the MIT License - see LICENSE for details
+@startuml
+skinparam nodesep 20
+skinparam linetype ortho
+skinparam classBackgroundColor #A8DADC
+
+interface AbstractFactory {
+    + {abstract} createProductA() const: \nstd::unique_ptr<AbstractProductA>
+    + {abstract} createProductB() const: \nstd::unique_ptr<AbstractProductB>
+}
+class ConcreteFactory1 {
+    + createProductA() const: \nstd::unique_ptr<ConcreteProductA1>
+    + createProductB() const: \nstd::unique_ptr<ConcreteProductB1>
+}
+class ConcreteFactory2 {
+    + createProductA() const: \nstd::unique_ptr<ConcreteProductA2>
+    + createProductB() const: \nstd::unique_ptr<ConcreteProductB2>
+}
+interface AbstractProductA {
+    + {abstract} operationA() \nconst: void
+}
+class ConcreteProductA1 {
+    + operationA() const: void
+}
+class ConcreteProductA2 {
+    + operationA() const: void
+}
+interface AbstractProductB {
+    + {abstract} operationB() \nconst: void
+}
+class ConcreteProductB1 {
+    + operationB() const: void
+}
+class ConcreteProductB2 {
+    + operationB() const: void
+}
+class Client {
+    - factory: 
+      std::unique_ptr<AbstractFactory>
+    + Client(factory: 
+      std::unique_ptr<AbstractFactory>)
+    + operation() const: void
+}
+
+AbstractFactory <|.. ConcreteFactory1
+AbstractFactory <|.. ConcreteFactory2
+AbstractProductA <|.. ConcreteProductA1
+AbstractProductA <|.. ConcreteProductA2
+AbstractProductB <|.. ConcreteProductB1
+AbstractProductB <|.. ConcreteProductB2
+ConcreteFactory1 --> ConcreteProductA1
+ConcreteFactory1 --> ConcreteProductB1
+ConcreteFactory2 --> ConcreteProductA2
+ConcreteFactory2 --> ConcreteProductB2
+ConcreteFactory1 -[hidden]-> AbstractProductA
+ConcreteFactory2 -[hidden]-> AbstractProductB
+Client .left.> AbstractFactory
+Client ..> AbstractProductA
+Client ..> AbstractProductB
+@enduml

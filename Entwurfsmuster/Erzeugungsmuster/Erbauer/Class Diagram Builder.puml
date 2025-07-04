@@ -1,0 +1,37 @@
+' Copyright (c) 2025 Franz Steinkress
+' Licensed under the MIT License - see LICENSE for details
+@startuml
+skinparam nodesep 80
+skinparam linetype ortho
+skinparam classBackgroundColor #A8DADC
+
+class Product {
+    - parts: std::vector<std::string>
+    + addPart(part: std::string): void
+    + show(): void
+}
+interface Builder {
+    + {abstract} buildPartA(): void
+    + {abstract} buildPartB(): void
+    + {abstract} getResult(): std::shared_ptr<Product>
+}
+class ConcreteBuilder {
+    - product: std::shared_ptr<Product>
+    + buildPartA(): void
+    + buildPartB(): void
+    + getResult(): std::shared_ptr<Product>
+}
+class Director {
+    - builder: std::shared_ptr<Builder>
+    + setBuilder(builder: std::shared_ptr<Builder>): void
+    + construct(): void
+}
+class Client {
+    + main(): int
+}
+
+ConcreteBuilder .up.|> Builder
+Director o-right-> Builder
+ConcreteBuilder .left.> Product
+Client ..> Director
+@enduml

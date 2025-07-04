@@ -1,0 +1,48 @@
+' Copyright (c) 2025 Franz Steinkress
+' Licensed under the MIT License - see LICENSE for details
+@startuml
+skinparam nodesep 60
+skinparam linetype ortho
+skinparam classBackgroundColor #B2C9AB
+
+interface Observer {
+    + {abstract} update(state: const std::string&): void
+}
+interface Subject {
+    # observers: std::vector<std::weak_ptr<Observer>>
+    + {abstract} attach(observer: 
+      const std::shared_ptr<Observer>&): void
+    + {abstract} detach(observer: 
+      const std::shared_ptr<Observer>&): void
+    + {abstract} notify(): void
+    + {abstract} setState(state: const std::string&): void
+    + {abstract} getState() const: std::string
+}
+class ConcreteSubject {
+    - state: std::string
+    + attach(observer: 
+      const std::shared_ptr<Observer>&): void
+    + detach(observer: 
+      const std::shared_ptr<Observer>&): void
+    + notify(): void
+    + setState(state: const std::string&): void
+    + getState() const: std::string
+}
+class ConcreteObserver {
+    - name: std::string
+    - subject: std::shared_ptr<ConcreteSubject>
+    + ConcreteObserver(name: const std::string&, 
+      subject: std::shared_ptr<ConcreteSubject>)
+    + update(state: const std::string&): void
+}
+class Client {
+    + main(): int
+}
+
+Observer <|.. ConcreteObserver
+Subject <|.. ConcreteSubject
+Subject -> Observer: " 0..* "
+ConcreteSubject <- ConcreteObserver
+Client ..> Subject
+Client ..> Observer
+@enduml

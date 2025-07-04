@@ -1,0 +1,48 @@
+' Copyright (c) 2025 Franz Steinkress
+' Licensed under the MIT License - see LICENSE for details
+@startuml
+skinparam linetype ortho
+skinparam classBackgroundColor #B2C9AB
+
+interface Visitor {
+    + {abstract} visitConcreteElementA(element: const ConcreteElementA&): void
+    + {abstract} visitConcreteElementB(element: const ConcreteElementB&): void
+}
+interface Element {
+    + {abstract} accept(visitor: 
+      Visitor&) const: void
+}
+class ConcreteElementA {
+    + accept(visitor: 
+      Visitor&) const: void
+    + operationA() const: void
+}
+class ConcreteElementB {
+    + accept(visitor: 
+      Visitor&) const: void
+    + operationB() const: void
+}
+class ConcreteVisitor {
+    + visitConcreteElementA(element: const ConcreteElementA&): void
+    + visitConcreteElementB(element: const ConcreteElementB&): void
+}
+class ObjectStructure {
+    - elements: std::vector<Element*>
+    + addElement(element: Element*)
+    + performOperations(visitor: Visitor&)
+}
+class Client {
+    + main(): void
+}
+
+Element <|.. ConcreteElementA
+Element <|.. ConcreteElementB
+Visitor <|.. ConcreteVisitor
+ConcreteElementA ..> Visitor
+ConcreteElementA <.. Visitor
+ConcreteElementB ..> Visitor
+ConcreteElementB <.. Visitor
+ObjectStructure --> "0..*" Element
+Client ..> Visitor
+Client .right.> ObjectStructure
+@enduml

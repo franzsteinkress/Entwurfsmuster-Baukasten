@@ -1,0 +1,32 @@
+' Copyright (c) 2025 Franz Steinkress
+' Licensed under the MIT License - see LICENSE for details
+@startuml
+skinparam linetype ortho
+skinparam classBackgroundColor #B2C9AB
+
+class Memento {
+    - state: std::string
+    + Memento(state: const std::string&)
+    + getState() const: std::string
+}
+class Originator {
+    - state: std::string
+    + setState(state: const std::string&): void
+    + getState() const: std::string
+    + saveToMemento() const: std::shared_ptr<Memento>
+    + restoreFromMemento(memento: std::shared_ptr<Memento>): void
+}
+class Caretaker {
+    - mementos: std::vector<std::shared_ptr<Memento>>
+    + addMemento(memento: std::shared_ptr<Memento>): void
+    + getMemento(index: size_t): std::shared_ptr<Memento>
+}
+class Client {
+    + main(): int
+}
+
+Originator ..> Memento
+Caretaker o--> "0..*  " Memento
+Client ..> Originator
+Client ..> Caretaker
+@enduml

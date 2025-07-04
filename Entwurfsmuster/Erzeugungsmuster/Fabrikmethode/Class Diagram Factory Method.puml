@@ -1,0 +1,39 @@
+' Copyright (c) 2025 Franz Steinkress
+' Licensed under the MIT License - see LICENSE for details
+@startuml
+skinparam linetype ortho
+skinparam classBackgroundColor #A8DADC
+
+interface Product {
+    + {abstract} operation() const: void
+}
+class ConcreteProduct1 {
+    + operation() const: void
+}
+class ConcreteProduct2 {
+    + operation() const: void
+}
+abstract class Creator {
+    + {abstract} factoryMethod() const: std::unique_ptr<Product>
+    + someOperation() const: void
+}
+class ConcreteCreator1 {
+    + factoryMethod() const: \nstd::unique_ptr<ConcreteProduct1>
+}
+class ConcreteCreator2 {
+    + factoryMethod() const: \nstd::unique_ptr<ConcreteProduct2>
+}
+class Client {
+    - creator: const Creator&
+    + Client(creator: const Creator&)
+    + execute() const: void
+}
+
+Creator <|-- ConcreteCreator1
+Creator <|-- ConcreteCreator2
+Product <|.. ConcreteProduct1
+Product <|.. ConcreteProduct2
+ConcreteCreator1 ..> ConcreteProduct1
+ConcreteCreator2 ..> ConcreteProduct2
+Client ..> Creator
+@enduml

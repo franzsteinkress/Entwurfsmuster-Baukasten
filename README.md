@@ -2,6 +2,11 @@
 
 Dieser Entwurfsmuster-Baukasten enthält alle 23 Entwurfsmuster aus den "Design Patterns" von Gamma et al. (GoF). Jedes Muster ist in einer strukturierten Ordnerhierarchie organisiert und enthält Klassendiagramme in PlantUML- und Draw.io-Formaten.
 
+![UML](https://img.shields.io/badge/UML-Diagrams-7D4698?logo=uml&logoColor=white)
+![PlantUML](https://img.shields.io/badge/PlantUML-Supported-brightgreen?logo=plantuml&logoColor=white)
+![draw.io](https://img.shields.io/badge/draw.io-Diagrams-orange?logo=diagramsdotnet&logoColor=white)
+![VS Code](https://img.shields.io/badge/Editor-VS%20Code-007ACC?logo=visualstudiocode&logoColor=white)
+
 ![Entwurfsmuster](.screenshots/entwurfsmuster.png)
 
 ## Struktur

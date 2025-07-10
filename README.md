@@ -1,6 +1,7 @@
 # Entwurfsmuster-Baukasten
 
 Dieser Entwurfsmuster-Baukasten enthält alle 23 Entwurfsmuster aus den "Design Patterns" von Gamma et al. (GoF). Jedes Muster ist in einer strukturierten Ordnerhierarchie organisiert und enthält Klassendiagramme in PlantUML- und Draw.io-Formaten.
+
 ![Entwurfsmuster](.screenshots/entwurfsmuster.png)
 
 ## Struktur

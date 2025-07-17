@@ -6,7 +6,11 @@
 # Ignoriert IDE-spezifische Dateien
 .idea/
 *.iml
-.vscode/
+
+# VS Code-Einstellungen
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
 
 # Ignoriert Betriebssystem-spezifische Dateien
 .DS_Store
@@ -17,3 +21,6 @@ Thumbs.db
 *.class
 *.jar
 *.pyc
+
+# Sonstige Dateien
+docs/*

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Proxy Pattern Animation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="box client">Client</div>
+    <div class="box subject">Subject</div>
+    <div class="box realsubject">RealSubject</div>
+    <div class="box proxy">Proxy</div>
+
+    <!-- Linien zwischen den Komponenten -->
+    <div class="line client-to-subject"></div>
+    <div class="dashed line proxy-to-subject">
+      <svg class="arrow" viewBox="0 0 24 16">
+        <polygon points="0,0 24,8 0,16" fill="#f2cc8f" stroke="black" stroke-width="2" />
+      </svg>
+    </div>
+    <div class="dashed line realsubject-to-subject">
+      <svg class="arrow" viewBox="0 0 24 16">
+        <polygon points="0,0 24,8 0,16" fill="#f2cc8f" stroke="black" stroke-width="2" />
+      </svg>
+    </div>
+    <div class="line proxy-to-realsubject"></div>
+  </div>
+</body>
+</html>

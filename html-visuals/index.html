@@ -20,7 +20,7 @@
         <button id="rightBtn" class="arrow right">→</button>
     </div>
     <div class="text">
-        <div class="line1">Entwurfsmuster</div>
+        <div class="line1" id="title">Titel</div>
         <div class="line2" id="description">Beschreibung</div>
     </div>
     <img src="./assets/proxy.png" alt="Screenshots des Entwurfsmuster">
@@ -35,12 +35,20 @@
         "Strategy.png", "Mediator.png", "State.png", "ChainOfResponsibility.png"
     ];
 
+    const titles = [
+        "Erzeugungsmuster", "Erzeugungsmuster", "Erzeugungsmuster", "Erzeugungsmuster", 
+        "Erzeugungsmuster", "Strukturmuster", "Strukturmuster", "Strukturmuster", "Strukturmuster", 
+        "Strukturmuster", "Strukturmuster", "Strukturmuster", "Verhaltensmuster", "Verhaltensmuster", 
+        "Verhaltensmuster", "Verhaltensmuster", "Verhaltensmuster", "Verhaltensmuster", "Verhaltensmuster", 
+        "Verhaltensmuster", "Verhaltensmuster", "Verhaltensmuster", "Verhaltensmuster"
+    ];
+
     const descriptions = [
-        "Erzeugungsmuster Abstrakte Fabrik", "Erzeugungsmuster Erbauer", "Erzeugungsmuster Fabrikmethode", "Erzeugungsmuster Prototyp", 
-        "Erzeugungsmuster Singleton", "Strukturmuster Klassenadapter", "Strukturmuster Brücke", "Strukturmuster Dekorierer", "Strukturmuster Fassade", 
-        "Strukturmuster Fliegengewicht", "Strukturmuster Kompositum", "Strukturmuster Proxy", "Verhaltensmuster Befehl", "Verhaltensmuster Beobachter", 
-        "Verhaltensmuster Besucher", "Verhaltensmuster Interpreter", "Verhaltensmuster Iterator", "Verhaltensmuster Memento", "Verhaltensmuster Schablonenmethode", 
-        "Verhaltensmuster Strategie", "Verhaltensmuster Vermittler", "Verhaltensmuster Zustand", "Verhaltensmuster Zuständigkeitskette"
+        "Klassendiagramm Abstrakte Fabrik", "Klassendiagramm Erbauer", "Klassendiagramm Fabrikmethode", "Klassendiagramm Prototyp", 
+        "Klassendiagramm Singleton", "Klassendiagramm Klassenadapter", "Klassendiagramm Brücke", "Klassendiagramm Dekorierer", "Klassendiagramm Fassade", 
+        "Klassendiagramm Fliegengewicht", "Klassendiagramm Kompositum", "Klassendiagramm Proxy", "Klassendiagramm Befehl", "Klassendiagramm Beobachter", 
+        "Klassendiagramm Besucher", "Klassendiagramm Interpreter", "Klassendiagramm Iterator", "Klassendiagramm Memento", "Klassendiagramm Schablonenmethode", 
+        "Klassendiagramm Strategie", "Klassendiagramm Vermittler", "Klassendiagramm Zustand", "Klassendiagramm Zuständigkeitskette"
     ];
 
     const dominantColors = [
@@ -58,15 +66,26 @@
     let imageIndex = 0;
     const img = document.querySelector(".overlay-box img");
     const button = document.getElementById("closeBtn");
+    const titl = document.getElementById("title");
     const desc = document.getElementById("description");
     const overlayBox = document.getElementById("overlayBox");
+    const lBtn = document.getElementById("leftBtn");
+    const rBtn = document.getElementById("rightBtn");
 
     function updateView() {
         img.src = `./assets/${images[imageIndex]}`;
+        titl.innerText = titles[imageIndex] || "Kein Titel verfügbar";
         desc.innerText = descriptions[imageIndex] || "Keine Beschreibung verfügbar";
         button.innerText = `Bild ${imageIndex + 1} von ${images.length}`;
         overlayBox.style.backgroundColor = dominantColors[imageIndex];
         overlayBox.style.color = fontColors[imageIndex];
+        overlayBox.style.outline = dominantColors[imageIndex];
+        lBtn.style.backgroundColor =  dominantColors[imageIndex];
+        lBtn.style.color =  fontColors[imageIndex];
+        lBtn.style.outline = dominantColors[imageIndex];
+        rBtn.style.backgroundColor =  dominantColors[imageIndex];
+        rBtn.style.color =  fontColors[imageIndex];
+        rBtn.style.outline = dominantColors[imageIndex];
     }
 
     function nextImage() {

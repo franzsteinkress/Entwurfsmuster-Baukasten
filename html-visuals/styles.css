@@ -44,6 +44,7 @@ html, body {
     aspect-ratio: 9 / 16;
     height: 90vh;
     width: 56.25vh; /* 16:9 Breite zu 100% Höhe */
+    max-height: 90vh;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 15px;
     border: 2px solid white;

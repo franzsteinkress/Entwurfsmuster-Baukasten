@@ -21,7 +21,10 @@ Thumbs.db
 *.class
 *.jar
 *.pyc
+*.json
 
 # Sonstige Dateien
+doc/*
 docs/*
-html-visuals/docs/*
+insta-visuals/screenshots/*
+node_modules/

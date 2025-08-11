@@ -111,7 +111,7 @@ const fontColors = [
         await new Promise(resolve => setTimeout(resolve, 300));
 
         const filename = `img${i + 1}-${imageName}`;
-        const filepath = path.join(outputDir, `${filename}.png`);
+        const filepath = path.join(outputDir, `${filename}`);
         await page.screenshot({ path: filepath, omitBackground: false });
         console.log("Screenshot gespeichert:", filename);
     }

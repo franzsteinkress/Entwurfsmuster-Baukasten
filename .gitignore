@@ -23,8 +23,14 @@ Thumbs.db
 *.pyc
 *.json
 
+# Puppeteer
+node_modules/
+package-lock.json
+package.json
+
 # Sonstige Dateien
 doc/*
 docs/*
 insta-visuals/screenshots/*
 node_modules/
+*.txt

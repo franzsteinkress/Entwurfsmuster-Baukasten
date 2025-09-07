@@ -1,44 +1,22 @@
-# Entwurfsmuster-Baukasten
+# Entwurfsmuster-Baukasten – 23 UML Design Patterns für professionelle C++-Architektur
 
 ![UML](https://img.shields.io/badge/UML-Diagrams-7D4698?logo=uml&logoColor=white) ![PlantUML](https://img.shields.io/badge/PlantUML-Supported-brightgreen?logo=plantuml&logoColor=white) ![draw.io](https://img.shields.io/badge/draw.io-Diagrams-orange?logo=diagramsdotnet&logoColor=white) ![VS Code](https://img.shields.io/badge/Editor-VS%20Code-007ACC?logo=visualstudiocode&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-green)
 
-Dieser Entwurfsmuster-Baukasten enthält alle 23 Entwurfsmuster aus den "Design Patterns" von Gamma et al. (GoF). Jedes Muster ist in einer strukturierten Ordnerhierarchie organisiert und enthält Klassendiagramme in PlantUML- und Draw.io-Formaten.
+Dieser Entwurfsmuster-Baukasten enthält alle 23 **UML Design Patterns C++** aus den „Design Patterns“ von Gamma et al. (GoF). Jedes Muster ist als **UML Klassendiagramm** in **PlantUML**- und Draw.io-Formaten verfügbar – ideal für **C++ Softwarearchitektur**, Dokumentation und Präsentationen.
+Die Sammlung deckt sämtliche **Designmuster** ab und unterstützt eine effiziente **C++ Architecture**-Planung durch klar strukturierte Diagramme.
 
-![Entwurfsmuster](.screenshots/entwurfsmuster.png)
+- 🔗 **[Live-Demo Viewer](https://franzsteinkress.github.io/Entwurfsmuster-Baukasten/html-visuals/index.html)**
+- 🔗 **[Blogpost (DE/EN)](https://steinkress.com/blog.html#post8)**
+- 🔗 **[GitHub Repository](https://github.com/franzsteinkress/Entwurfsmuster-Baukasten)**
 
 ## Struktur
-
-- **Erzeugungsmuster**: Muster zur Objekterstellung
-  - Abstrakte Fabrik
-  - Erbauer
-  - Fabrikmethode
-  - Prototyp
-  - Singleton
-- **Strukturmuster**: Muster zur Klassen- und Objektstruktur
-  - Adapter
-  - Brücke
-  - Kompositum
-  - Dekorierer
-  - Fassade
-  - Fliegengewicht
-  - Proxy
-- **Verhaltensmuster**: Muster für Objektinteraktion und Verantwortlichkeiten
-  - Zuständigkeitskette
-  - Befehl
-  - Interpreter
-  - Iterator
-  - Vermittler
-  - Memento
-  - Beobachter
-  - Zustand
-  - Strategie
-  - Schablonenmethode
-  - Besucher
+- **Erzeugungsmuster** (Abstrakte Fabrik, Erbauer, Fabrikmethode, Prototyp, Singleton)
+- **Strukturmuster** (Adapter, Brücke, Kompositum, Dekorierer, Fassade, Fliegengewicht, Proxy)
+- **Verhaltensmuster** (Zuständigkeitskette, Befehl, Interpreter, Iterator, Vermittler, Memento, Beobachter, Zustand, Strategie, Schablonenmethode, Besucher)
 
 ## Dateien pro Muster
-
-- `Class_Diagram_[Muster].puml`: PlantUML-Code für das Klassendiagramm
-- `Class_Diagram_[Muster].drawio`: Draw.io-Diagramm zum direkten Betrachten
+- `.puml` → PlantUML-Code für das Klassendiagramm  
+- `.drawio` → Draw.io-Diagramm zur direkten Anzeige
 
 ## Verwendung
 
@@ -51,10 +29,10 @@ Dieser Entwurfsmuster-Baukasten enthält alle 23 Entwurfsmuster aus den "Design 
    - Das Entwurfsmuster-Diagramm wird direkt angezeigt.
 4. Nutzen Sie die Diagramme zur Analyse oder Weiterverarbeitung.
 
+## Hinweise
+- Integration von **PlantUML** in Prompts möglich
+- Ideal für **agile Entwicklung**
+
 ## Lizenz
 
-Dieses Repository steht unter der [MIT-Lizenz](LICENSE).
-
-## Beitrag
-
-Beiträge sind willkommen! Bitte erstellen Sie einen Pull Request oder eröffnen Sie ein Issue für Vorschläge oder Fehler.
+Dieses Repository steht unter der [MIT-Lizenz](./LICENSE).

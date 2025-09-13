@@ -77,15 +77,18 @@
             titl.innerText = titles[imageIndex] || "Kein Titel verfügbar";
             desc.innerText = descriptions[imageIndex] || "Keine Beschreibung verfügbar";
             button.innerText = `Bild ${imageIndex + 1} von ${images.length}`;
+
             overlayBox.style.backgroundColor = dominantColors[imageIndex];
             overlayBox.style.color = fontColors[imageIndex];
             overlayBox.style.outline = dominantColors[imageIndex];
-            lBtn.style.backgroundColor =  dominantColors[imageIndex];
-            lBtn.style.color =  fontColors[imageIndex];
-            lBtn.style.outline = dominantColors[imageIndex];
-            rBtn.style.backgroundColor =  dominantColors[imageIndex];
-            rBtn.style.color =  fontColors[imageIndex];
-            rBtn.style.outline = dominantColors[imageIndex];
+
+            [lBtn, rBtn].forEach(btn => {
+                if (window.innerWidth >= 768) {
+                    btn.style.backgroundColor = dominantColors[imageIndex];
+                    btn.style.color = fontColors[imageIndex];
+                    btn.style.outline = dominantColors[imageIndex];
+                }
+            });
         }
 
         function nextImage() {

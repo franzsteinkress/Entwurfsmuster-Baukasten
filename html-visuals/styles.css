@@ -162,3 +162,16 @@ button {
 .arrow.right { right: -3.0rem; margin-right: -3.5rem; top: 50%; transform: translateY(-50%) scale(1); }
 .arrow:hover { transform: translateY(-50%) scale(1.2); }
 
+/* Mobile: Buttons unsichtbar */
+#leftBtn,
+#rightBtn {
+  display: none;
+}
+
+/* Desktop: Buttons sichtbar */
+@media (min-width: 768px) {
+  #leftBtn,
+  #rightBtn {
+    display: flex; /* weil du oben flex brauchst */
+  }
+}
